@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  
+  <!-- Main Homepage -->
+  <url>
+    <loc>https://venurakabojithananda.github.io/</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    
+    <!-- Profile Image -->
+    <image:image>
+      <image:loc>https://venurakabojithananda.github.io/me.jpg</image:loc>
+      <image:caption>Venuraka Bojith Ananda - English Literature Tutor Colombo</image:caption>
+      <image:title>Venuraka Bojith Ananda Profile</image:title>
+    </image:image>
+    
+    <!-- Video 1: O/L Literature -->
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/zkNdHLGpVnk/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>O/L English Literature Class</video:title>
+      <video:description>Free O/L English Literature lesson by Venuraka Bojith Ananda</video:description>
+      <video:content_loc>https://www.youtube.com/watch?v=zkNdHLGpVnk</video:content_loc>
+      <video:player_loc>https://www.youtube.com/embed/zkNdHLGpVnk</video:player_loc>
+      <video:duration>600</video:duration>
+      <video:view_count>45</video:view_count>
+      <video:publication_date>2026-01-15</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    
+    <!-- Video 2: Poetry Analysis -->
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/vmS18TFAjPQ/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>O/L Literature Poetry Analysis</video:title>
+      <video:description>Complete poetry analysis for O/L English Literature students</video:description>
+      <video:content_loc>https://www.youtube.com/watch?v=vmS18TFAjPQ</video:content_loc>
+      <video:player_loc>https://www.youtube.com/embed/vmS18TFAjPQ</video:player_loc>
+      <video:duration>540</video:duration>
+      <video:view_count>52</video:view_count>
+      <video:publication_date>2026-01-20</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    
+    <!-- Video 3: Tenses -->
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/GoZQ0rsUaHg/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>English Tenses Lesson</video:title>
+      <video:description>Complete guide to English tenses for O/L students</video:description>
+      <video:content_loc>https://www.youtube.com/watch?v=GoZQ0rsUaHg</video:content_loc>
+      <video:player_loc>https://www.youtube.com/embed/GoZQ0rsUaHg</video:player_loc>
+      <video:duration>720</video:duration>
+      <video:view_count>189</video:view_count>
+      <video:publication_date>2026-01-10</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+  
+  <!-- PDF Notes -->
+  <url>
+    <loc>https://venurakabojithananda.github.io/d1.pdf</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://venurakabojithananda.github.io/d2.pdf</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://venurakabojithananda.github.io/d3.pdf</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://venurakabojithananda.github.io/d4.pdf</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
