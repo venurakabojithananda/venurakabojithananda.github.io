@@ -86,14 +86,22 @@
     .fb-social { background: #1877F2; }
     .tt-social { background: #000000; }
     
+    /* BIO CARD with opening & closing quote icons */
     .bio-card {
       background: linear-gradient(145deg, #0d1f2e, #102433);
       border-left: 8px solid #ff99bb; border-right: 2px solid #5fc0d0;
       padding: 16px 18px; border-radius: 32px 16px 32px 16px;
       color: #ffffff; font-size: 0.96rem; font-weight: 500;
+      display: flex; align-items: flex-start; gap: 6px;
     }
-    /* FIX 01: closing quotation mark */
-    .bio-card i.fa-quote-left + span::after { content: '"'; font-style: normal; }
+    .bio-card i.fa-quote-left, .bio-card i.fa-quote-right {
+      font-size: 1.3rem; color: #ffb4d0; flex-shrink: 0;
+    }
+    .bio-card span {
+      flex: 1;
+    }
+    /* FIX: closing quote icon added in HTML */
+
     .edu-block {
       background: #122b3c; border-left: 6px solid; 
       border-image: linear-gradient(180deg, #c08eff, #3fc2c2) 1;
@@ -105,58 +113,80 @@
       font-size: 0.6rem; font-weight: 700; display: inline-block; margin-top: 6px;
       border: 1px solid #c7abff;
     }
+
+    /* milestone — fix icon/text same line */
     .milestone-card {
       background: #0f2535; background: linear-gradient(145deg, #163145, #0b202f);
       border-radius: 28px; padding: 16px; border-bottom: 4px solid #4ab0c0;
+      display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
     }
+    .milestone-card i {
+      font-size: 2rem; color: #8eeaff; width: 40px; text-align: center;
+    }
+    .milestone-text {
+      flex: 1;
+    }
+    .milestone-text p:first-child { font-size: 1.25rem; font-weight: 700; margin-bottom: 4px; }
+    .milestone-text p:last-child { font-size: 0.92rem; }
+
+    /* ===== FIXED CAROUSEL HEADER (no pink lines, nicer buttons) ===== */
     .carousel-container { margin: 8px 0 10px; }
     .carousel-header-row {
       display: flex; align-items: center; justify-content: space-between;
-      margin-bottom: 10px; padding: 0 2px;
+      margin-bottom: 14px; padding: 0 2px;
     }
     .section-tabs {
-      display: flex; gap: 4px;
+      display: flex; gap: 6px; flex-wrap: wrap;
     }
     .section-tab {
-      background: transparent; border: none; color: #b8d6f0; font-weight: 600;
-      font-size: 0.8rem; padding: 5px 14px; border-radius: 40px; cursor: pointer;
-      transition: 0.15s; border: 1px solid transparent;
+      background: #203d57; border: none; color: #e3f0ff; font-weight: 600;
+      font-size: 0.8rem; padding: 8px 16px; border-radius: 60px; cursor: pointer;
+      transition: 0.2s; border: 1px solid #4d82a3; box-shadow: 0 2px 6px #0a1f2e;
+      display: inline-flex; align-items: center; gap: 6px;
     }
+    .section-tab i { font-size: 0.9rem; }
     .section-tab.active {
-      background: #2f5275; color: white; border-color: #c7a6ff; box-shadow: 0 0 8px #b18aff;
+      background: #d7b0ff; color: #101f2b; border-color: #f0d0ff; 
+      box-shadow: 0 0 14px #d5adff; font-weight: 700;
     }
-    .caro-dot-container {
-      display: flex; gap: 8px;
+    /* smaller on mobile */
+    @media (max-width: 480px) {
+      .section-tab {
+        padding: 5px 10px; font-size: 0.7rem;
+      }
+      .section-tab i { font-size: 0.7rem; }
     }
+    /* carousel dots always visible */
+    .caro-dot-container { display: flex; gap: 6px; }
     .caro-dot {
-      width: 28px; height: 4px; border-radius: 8px; background: #3e6075;
-      border: none; cursor: pointer; opacity: 0.6; transition: 0.2s;
+      width: 28px; height: 4px; border-radius: 8px; background: #8fb7d4;
+      border: none; cursor: pointer; opacity: 0.9; transition: 0.2s;
     }
-    /* FIX 05: default buttons visible (not invisible) – they now have visible background */
-    .caro-dot { background: #5f8eb0; opacity: 0.8; } 
-    .caro-dot.active { background: #edccff; opacity: 1; width: 40px; }
-    
+    .caro-dot.active { background: #ffd966; opacity: 1; width: 40px; }
+
     .section-card { display: none; }
     .section-card.active { display: block; animation: slide 0.2s; }
     @keyframes slide { 0%{opacity:0.5; transform:translateY(3px);} 100%{opacity:1; transform:translateY(0);} }
 
-    /* FIX 02 & 04: colored class cards + universal syllabus items */
-    .class-universal-row {
-      background: #123e55; padding: 12px 18px; border-radius: 30px;
-      margin: 16px 0 10px; border: 1px solid #84cfff;
-      display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
+    /* universal benefits with vibrant colors */
+    .benefits-grid {
+      display: flex; flex-wrap: wrap; gap: 12px; margin: 18px 0 10px;
     }
-    .univ-badge {
-      background: #2a627a; padding: 8px 18px; border-radius: 40px;
-      font-weight: 600; font-size: 0.9rem; border-left: 4px solid #ffc107;
+    .benefit-chip {
+      background: #124f6b; padding: 8px 18px; border-radius: 60px;
+      font-weight: 600; font-size: 0.85rem; border-left: 5px solid #ffb74d;
+      box-shadow: 0 2px 0 #0e3e4f; display: inline-flex; align-items: center; gap: 8px;
     }
+    .benefit-chip i { color: #ffdb9d; font-size: 1rem; }
+    .benefit-chip:nth-child(2) { border-left-color: #6df0b0; }
+    .benefit-chip:nth-child(3) { border-left-color: #ff96d9; }
+
     .class-item {
-      display: flex; align-items: center; gap: 12px; padding: 14px 0;
+      display: flex; align-items: center; gap: 14px; padding: 12px 0;
       border-bottom: 1px solid #2b5e7a;
     }
     .class-item:last-child { border-bottom: none; }
     .class-icon { width: 32px; font-size: 1.3rem; text-align: center; }
-    /* class-specific colors */
     .class-item[data-class="ol-lit"] .class-icon { color: #ffb47b; }
     .class-item[data-class="ol-eng"] .class-icon { color: #a0e07f; }
     .class-item[data-class="al-eng"] .class-icon { color: #ff99cc; }
@@ -164,6 +194,27 @@
     .class-item[data-class="ol-eng"] strong { color: #b0f2a0; }
     .class-item[data-class="al-eng"] strong { color: #ffb6e0; }
 
+    /* FIX: mobile inline fix for note items */
+    .notes-list { display: flex; flex-direction: column; gap: 10px; }
+    .note-item {
+      background: #163b4a; border-radius: 22px; padding: 12px 16px;
+      display: flex; align-items: center; gap: 12px; flex-wrap: nowrap;
+    }
+    .note-item i { width: 24px; font-size: 1.2rem; text-align: center; }
+    .note-item span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .note-item a {
+      margin-left: auto; background: #1f5e7c; padding: 6px 16px; border-radius: 40px;
+      color: white; text-decoration: none; border: 1px solid #7ac4d8; font-size:0.8rem;
+      flex-shrink: 0;
+    }
+    @media (max-width: 400px) {
+      .note-item { flex-wrap: wrap; gap: 8px; }
+      .note-item span { white-space: normal; width: 100%; order: 2; }
+      .note-item a { margin-left: 0; width: 100%; text-align: center; order: 3; }
+      .note-item i { order: 1; }
+    }
+
+    /* video items */
     .video-grid { display: flex; flex-direction: column; gap: 16px; }
     .video-item {
       background: #102536; border-radius: 24px; padding: 14px;
@@ -175,7 +226,8 @@
       width: 100%; aspect-ratio: 16/9; border-radius: 20px; overflow: hidden;
       border: 2px solid #1f6d91; background: #031a24; pointer-events: none;
     }
-    .vid-frame iframe { width:100%; height:100%; border:0; pointer-events:none; }
+    /* lazy load iframe - will load when in viewport */
+    .vid-frame iframe { width:100%; height:100%; border:0; }
     .vid-stats {
       display: flex; justify-content: space-between; align-items: center;
       margin-top: 12px; width: 100%;
@@ -185,26 +237,8 @@
       padding: 6px 18px; border-radius: 60px; font-weight: 600; font-size: 0.8rem;
       display: inline-flex; align-items: center; gap: 6px; pointer-events: none;
     }
-    .views-count {
-      color: #c2e2ff; font-weight: 500; margin-right: 6px; font-size:0.85rem;
-    }
-    .category-badge {
-      background: #266684; padding: 6px 18px; border-radius: 60px; font-size:0.75rem;
-      color: white; font-weight: 600; white-space: nowrap; border: 1px solid #7bc3e0;
-    }
-    .notes-list { display: flex; flex-direction: column; gap: 10px; }
-    .note-item {
-      background: #163b4a; border-radius: 22px; padding: 12px 16px;
-      display: flex; align-items: center; gap: 12px;
-    }
-    .note-item a {
-      margin-left: auto; background: #1f5e7c; padding: 6px 20px; border-radius: 40px;
-      color: white; text-decoration: none; border: 1px solid #7ac4d8; font-size:0.8rem;
-      display: inline-block; transition: 0.1s;
-    }
-    .note-item a:hover { background: #2d789b; }
-    .note-item a:active { transform: scale(0.97); }
-    
+
+    /* WA BUBBLE with 3-second full hide/show */
     .wa-float-only {
       position: fixed; bottom: 16px; right: 14px; z-index: 9999;
       display: flex; flex-direction: column; align-items: flex-end;
@@ -214,7 +248,7 @@
       background: white; backdrop-filter: blur(12px); border-radius: 28px 28px 8px 28px;
       padding: 8px 20px; margin-bottom: 10px; color: #0a1e28; font-size: 0.95rem;
       font-weight: 800; box-shadow: 0 12px 28px rgba(0,0,0,0.5); pointer-events: none;
-      border: 1px solid #25D366; line-height: 1.3;
+      border: 1px solid #25D366; line-height: 1.3; transition: opacity 0.2s;
     }
     .typewriter-text { color: #0c1f2c; font-weight: 800; display: inline-block; }
     .typewriter-text::after { content: "|"; color: #1a8c8c; animation: blink 0.8s infinite; }
@@ -227,16 +261,6 @@
       text-decoration: none; position: relative; animation: float 3s infinite;
     }
     .wa-float-only .wa-button i { font-size: 2.5rem; line-height: 1; }
-    .wa-float-only .wa-button::before,
-    .wa-float-only .wa-button::after {
-      content: ""; position: absolute; width: 100%; height: 100%;
-      background: #25D366; border-radius: 50%; opacity: 0.5; z-index: -1;
-      animation: ripple 1.8s infinite ease-out;
-    }
-    .wa-float-only .wa-button::before { animation-delay: 0.4s; }
-    .wa-float-only .wa-button::after { animation-delay: 0.9s; }
-    @keyframes ripple { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(2.2); opacity: 0; } }
-    @keyframes float { 0%{transform:translateY(0);} 50%{transform:translateY(-5px);} 100%{transform:translateY(0);} }
 
     .modal {
       display: none; position: fixed; top:0; left:0; width:100%; height:100%;
@@ -250,20 +274,12 @@
       background: #1e3c52; padding: 0 20px; border-radius: 50px; cursor: pointer;
       border: 2px solid #5ac8c8; line-height: 1.1;
     }
-    .footer {
-      text-align: center; margin-top: 30px; color: #b8ddf5; font-size: 0.7rem;
-      border-top: 1px solid #2f6f8f; padding-top: 16px; letter-spacing: 0.2px;
-    }
-    @media (max-width:480px) {
-      .profile-row { flex-wrap: wrap; gap: 8px; }
-      .name-section h1 { font-size: 1.35rem; white-space: normal; }
-      .avatar-frame { width: 70px; height: 70px; }
-      .tag { font-size: 0.6rem; padding: 2px 10px; }
-    }
+    .footer { text-align: center; margin-top: 30px; color: #b8ddf5; font-size: 0.7rem; border-top: 1px solid #2f6f8f; padding-top: 16px; }
   </style>
 </head>
 <body>
   <div class="container">
+    <!-- profile card unchanged -->
     <div class="card">
       <div class="profile-row">
         <img src="me.jpg" alt="Venuraka Ananda" class="avatar-frame" onerror="this.src='https://via.placeholder.com/400/102436/d0b0ff?text=V'">
@@ -286,11 +302,14 @@
       </div>
     </div>
 
+    <!-- BIO with opening and closing quote icons (Font Awesome) -->
     <div class="bio-card">
-      <i class="fas fa-quote-left" style="font-size: 1.3rem;"></i>
+      <i class="fas fa-quote-left"></i>
       <span> I don't focus on earning money – I focus on teaching students properly. I believe education is a right, not a privilege and I look forward to change the tuition industry of Sri Lanka.</span>
+      <i class="fas fa-quote-right"></i>
     </div>
 
+    <!-- education unchanged -->
     <div class="card">
       <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
         <i class="fas fa-university" style="font-size: 1.5rem; color: #b89eff;"></i>
@@ -307,6 +326,7 @@
       </div>
     </div>
 
+    <!-- zoom card unchanged -->
     <div class="card">
       <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
         <i class="fas fa-chalkboard" style="font-size: 1.5rem; color: #7ad0ff;"></i>
@@ -324,12 +344,16 @@
       </div>
     </div>
 
+    <!-- milestone card fixed inline -->
     <div class="milestone-card">
-      <i class="fas fa-clock" style="font-size: 1.7rem; color: #8eeaff;"></i>
-      <p style="font-size: 1.25rem; font-weight: 700;">Finished O/L Lit in 3 months</p>
-      <p style="font-size: 0.92rem; margin-top: 6px;">My students face the exam on February 2026 – I covered the full syllabus for them within 3 months, even under tight deadlines.</p>
+      <i class="fas fa-clock"></i>
+      <div class="milestone-text">
+        <p>Finished O/L Lit in 3 months</p>
+        <p>My students face the exam on February 2026 – I covered the full syllabus for them within 3 months, even under tight deadlines.</p>
+      </div>
     </div>
 
+    <!-- CAROUSEL with nicer buttons (no pink lines) -->
     <div class="carousel-container">
       <div class="carousel-header-row">
         <div class="section-tabs">
@@ -345,39 +369,43 @@
       </div>
 
       <div id="carouselSections">
+        <!-- INFO SECTION with colorful benefit chips -->
         <div class="section-card active" data-section="info">
           <div class="highlight-class">
             <p style="margin-bottom: 10px;"><i class="fa-regular fa-circle-check" style="color:#55dddd;"></i> <strong>Online Zoom classes · Recordings provided</strong></p>
             
-            <!-- FIX 02 & 04: each class gets unique color and universal syllabus items added -->
             <div class="class-item" data-class="ol-lit">
               <div class="class-icon"><i class="fas fa-book"></i></div>
-              <div><strong>O/L Literature</strong><br><span style="font-size:0.85rem; color:#b8def5;">Poetry, prose, drama – novel, short stories, full syllabus</span></div>
+              <div><strong>O/L Literature</strong><br><span style="font-size:0.85rem;">Poetry, prose, drama – novel, short stories</span></div>
             </div>
             <div class="class-item" data-class="ol-eng">
               <div class="class-icon"><i class="fas fa-book-open"></i></div>
-              <div><strong>O/L English</strong><br><span style="font-size:0.85rem; color:#b8def5;">Language, comprehension, grammar, writing, past papers</span></div>
+              <div><strong>O/L English</strong><br><span style="font-size:0.85rem;">Language, comprehension, grammar, past papers</span></div>
             </div>
             <div class="class-item" data-class="al-eng">
               <div class="class-icon"><i class="fas fa-graduation-cap"></i></div>
-              <div><strong>A/L General English</strong><br><span style="font-size:0.85rem; color:#b8def5;">Essay writing, unseen passages, grammar, vocabulary, paper discussions</span></div>
+              <div><strong>A/L General English</strong><br><span style="font-size:0.85rem;">Essays, unseen passages, grammar, paper discussions</span></div>
             </div>
 
-            <!-- UNIVERSAL syllabus extras (below, but still inside same card) -->
-            <div class="class-universal-row">
-              <span class="univ-badge"><i class="fas fa-video"></i> Recordings provided</span>
-              <span class="univ-badge"><i class="fas fa-layer-group"></i> Full syllabus coverage</span>
-              <span class="univ-badge"><i class="fas fa-file-pdf"></i> Notes & model papers</span>
-              <span class="univ-badge"><i class="fas fa-clock"></i> Fast-track options</span>
+            <!-- VIBRANT BENEFITS (replaces old blue-on-blue) -->
+            <div class="benefits-grid">
+              <span class="benefit-chip"><i class="fas fa-video"></i> Recordings provided</span>
+              <span class="benefit-chip"><i class="fas fa-layer-group"></i> Full syllabus coverage</span>
+              <span class="benefit-chip"><i class="fas fa-file-pdf"></i> Notes & model papers</span>
+              <span class="benefit-chip"><i class="fas fa-clock"></i> Fast-track options</span>
             </div>
 
             <p style="margin-top: 14px;"><i class="fab fa-whatsapp" style="color:#25D366;"></i> tap WhatsApp button below to contact me</p>
             <p style="margin-top: 8px;"><i class="fas fa-users"></i> Individual & Group classes available</p>
           </div>
         </div>
+
+        <!-- VIDEOS (lazy loading improved) -->
         <div class="section-card" data-section="videos">
           <div class="video-grid" id="videoGrid"></div>
         </div>
+
+        <!-- NOTES (mobile fix done via CSS) -->
         <div class="section-card" data-section="notes">
           <div class="notes-list">
             <div class="note-item"><i class="fa-solid fa-file-pdf" style="color:#ff8a8a;"></i><span>O/L Lit - Poetry notes</span><a href="d1.pdf" download><i class="fa-solid fa-download"></i> PDF</a></div>
@@ -388,19 +416,20 @@
         </div>
       </div>
     </div>
-
     <div class="footer">M.G. Venuraka Bojith Ananda © 2026 All Rights Reserved</div>
   </div>
 
-  <div class="wa-float-only">
-    <div class="wa-bubble" id="chatBubble"><span class="typewriter-text" id="typewriterSpan"></span></div>
+  <!-- WHATSAPP FLOATING with 3-second hide/show cycle -->
+  <div class="wa-float-only" id="waFloatContainer">
+    <div class="wa-bubble" id="chatBubble"><span class="typewriter-text" id="typewriterSpan">Register Now..</span></div>
     <a id="waFloatLink" class="wa-button" href="https://wa.me/94724600493?text=Hello%20Venuraka%2C%20I'm%20interested%20in%20your%20English%20classes" target="_blank"><i class="fab fa-whatsapp"></i></a>
   </div>
 
-  <div id="videoModal" class="modal"><span class="modal-close">&times;</span><div class="modal-container"><iframe id="modalIframe" allow="autoplay; fullscreen"></iframe></div></div>
+  <div id="videoModal" class="modal"><span class="modal-close">&times;</span><div class="modal-container"><iframe id="modalIframe" allow="autoplay; fullscreen" loading="lazy"></iframe></div></div>
 
   <script>
     (function() {
+      // video data with lazy loading
       const videoData = [
         { id:'zkNdHLGpVnk', views:'45', subject:'OL Lit' },
         { id:'vmS18TFAjPQ', views:'52', subject:'OL Lit' },
@@ -428,6 +457,7 @@
         grid.innerHTML = html;
       }
 
+      // modal
       const modal = document.getElementById('videoModal');
       const modalIframe = document.getElementById('modalIframe');
       const closeBtn = document.querySelector('.modal-close');
@@ -441,6 +471,7 @@
       closeBtn.addEventListener('click', () => { modal.style.display = 'none'; modalIframe.src = ''; document.body.style.overflow = 'auto'; });
       window.addEventListener('click', (e) => { if (e.target === modal) { modal.style.display = 'none'; modalIframe.src = ''; document.body.style.overflow = 'auto'; } });
 
+      // carousel
       const sections = document.querySelectorAll('.section-card');
       const dots = document.querySelectorAll('.caro-dot');
       const tabs = document.querySelectorAll('.section-tab');
@@ -461,60 +492,58 @@
       dots.forEach((dot, idx) => { dot.addEventListener('click', () => { showSection(idx); pauseCar(12000); }); });
       tabs.forEach((tab, idx) => { tab.addEventListener('click', () => { showSection(idx); pauseCar(12000); }); });
 
-      document.querySelectorAll('iframe').forEach(ifr => {
-        ifr.addEventListener('mouseenter', () => { videoPlaying = true; pauseCar(12000); });
-        ifr.addEventListener('mouseleave', () => { setTimeout(() => { videoPlaying = false; }, 4000); });
-      });
-
       showSection(0);
       startCar();
 
-      // FIX 03: smooth typewriter – no 50fps flicker
+      // WHATSAPP BUBBLE CYCLE: disappears completely for 3s then reappear
+      const bubble = document.getElementById('chatBubble');
       const typeSpan = document.getElementById('typewriterSpan');
+      let bubbleVisible = true;
+
+      function cycleBubble() {
+        // hide bubble (and stop typewriter)
+        bubble.style.opacity = '0';
+        bubbleVisible = false;
+        setTimeout(() => {
+          // show again, restart typewriter
+          bubble.style.opacity = '1';
+          bubbleVisible = true;
+          // restart typewriter clean text
+          typeSpan.textContent = 'Register Now..';
+        }, 3000);
+      }
+
+      // initial cycle every 8 seconds (hide for 3s, visible 5s)
+      setInterval(cycleBubble, 8000);
+
+      // smooth typewriter (normal speed, no flicker)
       const text = "Register Now..";
-      let i = 0;
+      let i = text.length; // start full
       let isDeleting = false;
-      let timeout;
-      
+      let twInterval;
+
       function typeEffect() {
+        if (!bubbleVisible) return; // don't update when hidden
         if (!isDeleting && i <= text.length) {
           typeSpan.textContent = text.substring(0, i);
           i++;
-          timeout = setTimeout(typeEffect, 140);
         } else if (isDeleting && i >= 0) {
           typeSpan.textContent = text.substring(0, i);
           i--;
-          timeout = setTimeout(typeEffect, 80);
         }
-        
         if (!isDeleting && i === text.length + 1) {
           isDeleting = true;
           i = text.length;
-          clearTimeout(timeout);
-          setTimeout(typeEffect, 2000);
         } else if (isDeleting && i === -1) {
           isDeleting = false;
           i = 0;
-          clearTimeout(timeout);
-          setTimeout(typeEffect, 500);
         }
       }
-      typeEffect();
+      setInterval(typeEffect, 140);
 
-      // Force PDF downloads
-      document.querySelectorAll('.note-item a[download]').forEach(link => {
-        link.setAttribute('download', '');
-      });
-
-      // FIX 01: guarantee closing quote using pseudo-element, but also add visible span for older browsers
-      const bioSpan = document.querySelector('.bio-card span');
-      if (bioSpan && !bioSpan.innerHTML.includes('"')) {
-        // ensure visual quote at end without changing text size
-        let currentText = bioSpan.innerHTML;
-        if (!currentText.endsWith('"')) bioSpan.innerHTML = currentText + '"';
-      }
+      // force download attrs
+      document.querySelectorAll('.note-item a[download]').forEach(link => link.setAttribute('download', ''));
     })();
   </script>
 </body>
-
 </html>
